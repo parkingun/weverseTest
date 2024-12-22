@@ -4,6 +4,7 @@ from Pages.LoginPage import Login
 from Pages.BasePage import BasePage
 from Pages.MainPage import mainPage
 from API.GetAccountInfo import getAccount
+from Function.ExtractCookieData import get_cookie_value
 
 class Test_Login(DriverSetting, BasePage):
 
@@ -31,13 +32,6 @@ class Test_Login(DriverSetting, BasePage):
 
         # 현재 브라우저의 쿠키를 가져옴
         cookies = self.driver.get_cookies()
-
-        """ 쿠키값에서 원하는 데이터 추출하기 위한 함수 """
-
-        def get_cookie_value(cookies, target_name):
-            # filter를 사용해 원하는 쿠키 항목을 찾고, 첫 번째 항목의 value 값을 반환
-            filtered_items = list(filter(lambda item: item['name'] == target_name, cookies))
-            return filtered_items[0]['value'] if filtered_items else None
 
         # 쿠키에서 필요한 토큰 및 디바이스 ID 추출
         accessToken = get_cookie_value(cookies, "we2_access_token")
