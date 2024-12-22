@@ -3,6 +3,7 @@ import requests
 """ 계정 정보를 얻기 위한 API """
 def getAccount(accessToken, deviceId):
 
+    # 테스트 시 변경 필요.
     url = "https://global.apis.naver.com/weverse/wevweb/users/v1.0/users/me?appId=be4d79eb8fc7bd008ee82c8ec4ff6fd4&language=ko&os=WEB&platform=WEB&wpf=pc&wmsgpad=1734791280426&wmd=2VZoAA%2FY2NXN3LV2sumuAxWH2q4%3D"
 
     headers = {
