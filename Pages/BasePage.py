@@ -1,6 +1,5 @@
 import time
 from selenium.webdriver import ActionChains
-from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
@@ -19,7 +18,6 @@ class BasePage:
             element = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((by, locator)))
             actions = ActionChains(self.driver)
             actions.click(element).perform()
-            time.sleep(1)
         except Exception as error:
             print(f"click 에러 발생: {error}")
 
@@ -28,7 +26,6 @@ class BasePage:
             WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((by, locator)))
             element = self.find_element(by, locator)
             element.send_keys(text)
-            time.sleep(1)
         except Exception as error:
             print(f"send_keys 에러 발생: {error}")
 
